@@ -51,7 +51,7 @@ function actualizarCarrito() {
         listItem.textContent = `${item.producto}: $${item.precio.toFixed(2)}`;
         listaCarrito.appendChild(listItem);
         total += item.precio;
-        //LOCALSTORAGE--JSON
+        //LOCALSTORAGE--JSON---revisar
         localStorage.setItem("carrito", JSON.stringify(listaCarrito));
     });
 
