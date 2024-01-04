@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiosko</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Kiosko</h1>
+        <!-------- productos --------------->
+        <div class="productos">
+            <div class="producto" id="producto1">
+                <h2>Chupetines</h2>
+                <p>Precio: $200</p>
+                <button id="boton">Agregar al carrito</button>
+            </div>
+            <div class="producto" id="producto2">
+                <h2>Chocolate Block</h2>
+                <p>Precio: $800</p>
+                <button id="boton2">Agregar al carrito</button>
+            </div>
+            <div class="producto" id="producto3">
+                <h2>Galletitas Oreo</h2>
+                <p>Precio: $1230.50</p>
+                <button id="boton3">Agregar al carrito</button>
+            </div>
+            <div class="producto" id="producto4">
+                <h2>Alfajor Capitan</h2>
+                <p>Precio: $750</p>
+                <button id="boton4">Agregar al carrito</button>
+            </div>
+            <div class="producto" id="producto5">
+                <h2>Coca Cola 600cc</h2>
+                <p>Precio: $850</p>
+                <button id="boton5">Agregar al carrito</button>
+            </div>
+        </div>
+        <!------ Vaciar Carrito --------->
+        <div class="carrito">
+            <h2>Carrito de Compras</h2>
+            <ul id="lista-carrito"></ul>
+            <p id="total">Total: $0.00</p>
+            <button id="botonVaciar">Vaciar Carrito</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
+
