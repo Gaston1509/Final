@@ -3,50 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiosko</title>
+    <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Estilos -->
     <link rel="stylesheet" href="main.css">
+    <title>Kiosko Alfonsina</title>
 </head>
 <body>
-    <div class="container-fluid">
-        <h1 class="text-center mt-5" >Kiosko</h1>
-        <!-------- productos --------------->
-        <div class="productos">
-            <div class="producto" id="producto1">
-                <h2>Chupetines</h2>
-                <p>Precio: $200</p>
-                <button id="boton">Agregar al carrito</button>
-            </div>
-            <div class="producto" id="producto2">
-                <h2>Chocolate Block</h2>
-                <p>Precio: $800</p>
-                <button id="boton2">Agregar al carrito</button>
-            </div>
-            <div class="producto" id="producto3">
-                <h2>Galletitas Oreo</h2>
-                <p>Precio: $1230.50</p>
-                <button id="boton3">Agregar al carrito</button>
-            </div>
-            <div class="producto" id="producto4">
-                <h2>Alfajor Capitan</h2>
-                <p>Precio: $750</p>
-                <button id="boton4">Agregar al carrito</button>
-            </div>
-            <div class="producto" id="producto5">
-                <h2>Coca Cola 600cc</h2>
-                <p>Precio: $850</p>
-                <button id="boton5">Agregar al carrito</button>
-            </div>
+    <header>
+        <h1>Kiosko Alfonsina</h1>
+    </header>
+    <main>
+        <div id="productos-container"></div>
+        <div id="carrito-container">
+            <h2>Carrito de Compras</h2>
+            <ul id="carrito-lista"></ul>
+            <p>Total: $ <span id="total">0</span></p>
+            <button id="finalizarCompra">Finalizar Compra</button>
         </div>
-        <!------ Vaciar Carrito --------->
-        <div class="carrito">
-            <h2 class="text-center">Carrito de Compras</h2>
-            <ul id="lista-carrito"></ul>
-            <p id="total" class="text-center">Total: $0.00</p>
-            <button id="botonVaciar">Vaciar Carrito</button>
-        </div>
-    </div>
+    </main>
+    <!-- Enlace JavaScript -->
     <script src="app.js"></script>
 </body>
 </html>
-

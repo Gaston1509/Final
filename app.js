@@ -1,68 +1,75 @@
-// definir variable array
-let carrito = [];
+// OBJETO PRODUCTO
 
-// función agregar productos--botones
-
-const boton = document.getElementById("boton")
-boton.onclick = function(){
-    agregarAlCarrito('Chupetines', 200)
-}
-
-const boton2 = document.getElementById("boton2")
-boton2.onclick = function(){
-    agregarAlCarrito('Chocolate Block', 800)
-}
-
-const boton3 = document.getElementById("boton3")
-boton3.onclick = function(){
-    agregarAlCarrito('Galletitas Oreo', 1230.50)
-}
-
-const boton4 = document.getElementById("boton4")
-boton4.onclick = function(){
-    agregarAlCarrito('Alfajor Capitan', 750)
-}
-
-const boton5 = document.getElementById("boton5")
-boton5.onclick = function(){
-    agregarAlCarrito('Coca Cola', 850)
-}
-
-
-function agregarAlCarrito(producto, precio) {
-    const item = {producto, precio};
-    carrito.push(item);
+const productos = [
+    { id: 1, nombre: 'Alfajor Capitan', precio: 600 },
+    { id: 2, nombre: 'Gomitas', precio: 650.6 },
+    { id: 3, nombre: 'Gaseosas', precio: 900 },
+    { id: 4, nombre: 'Oreos', precio: 1650 },
+    { id: 5, nombre: 'Block', precio: 1200 },
+    { id: 6, nombre: 'Chicles Belden', precio: 800 },
+    { id: 7, nombre: 'Biscochos Don Satur', precio: 500 },
+];
+//FUNCION AGREGAR AL CARRITO
+function agregarAlCarrito(id, nombre, precio) {
+    const carrito = obtenerCarrito();
+    carrito.push({ id, nombre, precio });
+    guardarCarrito(carrito);
     actualizarCarrito();
 }
 
-// funcion actulizacion
-
+//JSON
+function obtenerCarrito() {
+    return JSON.parse(localStorage.getItem('carrito')) || [];
+}
+//GUARDAR ELEMENTOS
+function guardarCarrito(carrito) {
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+}
+//ACTUALIZAR CARRITO
 function actualizarCarrito() {
-    const listaCarrito = document.getElementById('lista-carrito');
-    const totalElemento = document.getElementById('total');
-    listaCarrito.innerHTML = '';
-   
-
-// variable total    
+    const carrito = obtenerCarrito();
+    const carritoLista = document.getElementById('carrito-lista');
+    const totalElement = document.getElementById('total');
     let total = 0;
-    
+    carritoLista.innerHTML = '';
+//RECORRER PRODUCTOS 
     carrito.forEach(item => {
-        const listItem = document.createElement('li');
-        listItem.textContent = `${item.producto}: $${item.precio.toFixed(2)}`;
-        listaCarrito.appendChild(listItem);
+        const li = document.createElement('li');
+        li.innerHTML = `<span>${item.nombre}</span>
+            <span>$ ${item.precio}</span>`;
+        carritoLista.appendChild(li);
         total += item.precio;
-        //LOCALSTORAGE--JSON---revisar
-        localStorage.setItem("carrito", JSON.stringify(listaCarrito));
+    });
+//TOTAL PRECIOS
+    totalElement.textContent = total.toFixed(2);
+}
+//VER PRODUCTOS FINALIZAR Y ACTUALIZAR
+document.addEventListener('DOMContentLoaded', () => {
+    const productosContainer = document.getElementById('productos-container');
+    const carritoLista = document.getElementById('carrito-lista');
+    const totalElement = document.getElementById('total');
+
+    actualizarCarrito();
+
+    productos.forEach(producto => {
+        const productoDiv = document.createElement('div');
+        productoDiv.innerHTML = `<h4>${producto.nombre}</h4>
+            <p>Precio: ${producto.precio} $</p>
+            <button onclick="agregarAlCarrito(${producto.id}, '${producto.nombre}', ${producto.precio})">Agregar al Carrito</button>`;
+        productosContainer.appendChild(productoDiv);
     });
 
-    totalElemento.textContent = `Total: $${total.toFixed(2)}`;
-}
+    document.getElementById('finalizarCompra').addEventListener('click', finalizarCompra);
 
-// funcion vaciar resetear carrito
-
-const botonVaciar = document.getElementById("botonVaciar")
-        botonVaciar.onclick = function(){
-        carrito = [];
-        actualizarCarrito()
-}
-
+    function finalizarCompra() {
+        const carrito = obtenerCarrito();
+        if (carrito.length === 0) {
+            alert('¡Compra algo ratón');
+        } else {
+            alert('Gracias por tu compra. Vuela Pronto!! Gracias...');
+            // LIMPIAR CARRITO
+            guardarCarrito([]);
+            actualizarCarrito();
+        }
+    }
+});
