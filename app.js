@@ -8,7 +8,7 @@ const productos = [
     { id: 6, nombre: 'Chicles Beldent', precio: 800, imagen: './assets/img/beldent.png' },
     { id: 7, nombre: 'Bizcochos', precio: 500, imagen: './assets/img/donSatur.png' },
     { id: 8, nombre: 'Pipas', precio: 500, imagen: './assets/img/pipas.png' },
-    { id: 9, nombre: 'kinder', precio: 1100, imagen: './assets/img/Kinder.png' },
+    { id: 9, nombre: 'kinder', precio: 1100, imagen: './assets/img/kinder.png' },
     { id: 10, nombre: 'pepas', precio: 1400, imagen: './assets/img/pepas.png' },
 ];
 
