@@ -93,7 +93,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 title: "¡Compra algo ratón!",
               });
         } else {
-            Swal.fire('Gracias por tu compra. Vuelve pronto. ¡Gracias!');
+            Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "Gracias por tu compra. Vuelve pronto. ¡Gracias!",
+                showConfirmButton: false,
+                timer: 2000
+              });
             // LIMPIAR CARRITO
             guardarCarrito([]);
             actualizarCarrito();
