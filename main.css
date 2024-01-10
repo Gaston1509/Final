@@ -17,8 +17,8 @@ header {
 }
 
 main {
-    max-width: 1000;
-    margin: 20px auto;
+    max-width: 1000px;
+    margin: 0px auto;
     display: flex;
     flex-direction: column;
     background-color: #f6efef;
@@ -29,6 +29,7 @@ main {
 }
 
 #productos-container {
+    width: ;
     display: flex;
     justify-content:space-around;
     flex-wrap: wrap;
@@ -37,10 +38,10 @@ main {
 
 #carrito-container {
     margin: 0 auto;
-    width: 500px;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -78,10 +79,12 @@ h4{
     
 }
 button{
+    display: flex;
     background-color: #549f54;
     border-radius: 5px;
     padding: 5px;
     color: rgb(18, 18, 18);
+    margin: 0 auto;
 }
 button:hover{
     background-color: #d45e40;
