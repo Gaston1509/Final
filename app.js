@@ -9,7 +9,9 @@ const productos = [
     { id: 7, nombre: 'Bizcochos', precio: 500, imagen: './assets/img/donSatur.png' },
     { id: 8, nombre: 'Pipas', precio: 500, imagen: './assets/img/pipas.png' },
     { id: 9, nombre: 'kinder', precio: 1100, imagen: './assets/img/kinder.png' },
-    { id: 10, nombre: 'pepas', precio: 1400, imagen: './assets/img/pepas.png' },
+    { id: 10, nombre: 'Pepas', precio: 1400, imagen: './assets/img/pepas.png' },
+    { id: 11, nombre: 'Desayuno', precio: 3000, imagen: './assets/img/cafe_medialunas.png' },
+    { id: 12, nombre: 'Yogurt', precio: 1450, imagen: './assets/img/yogurt.png' },
 ];
 
 // FUNCION AGREGAR AL CARRITO
