@@ -1,18 +1,18 @@
 // OBJETO PRODUCTO
 
 const productos = [
-    { id: 1, nombre: 'Alfajor Capitan', precio: 600 },
-    { id: 2, nombre: 'Gomitas', precio: 650.6 },
-    { id: 3, nombre: 'Gaseosas', precio: 900 },
-    { id: 4, nombre: 'Oreos', precio: 1650 },
-    { id: 5, nombre: 'Block', precio: 1200 },
-    { id: 6, nombre: 'Chicles Belden', precio: 800 },
-    { id: 7, nombre: 'Biscochos Don Satur', precio: 500 },
+    { id: 1, nombre: 'Alfajor Capitan', precio: 600, imagen: './assets/img/capitan.png'},
+    { id: 2, nombre: 'Gomitas', precio: 650.6, imagen: './assets/img/mogul.png'},
+    { id: 3, nombre: 'Gaseosas', precio: 900, imagen:'./assets/img/gaseosas.png' },
+    { id: 4, nombre: 'Oreos', precio: 1650, imagen: './assets/img/oreos.png' },
+    { id: 5, nombre: 'Block', precio: 1200, imagen: './assets/img/block.png' },
+    { id: 6, nombre: 'Chicles Beldent', precio: 800,  imagen:'./assets/img/beldent.png' },
+    { id: 7, nombre: 'Bizcochos Don Satur', precio: 500, imagen: './assets/img/donSatur.png'},
 ];
 //FUNCION AGREGAR AL CARRITO
-function agregarAlCarrito(id, nombre, precio) {
+function agregarAlCarrito(id, nombre, precio, imagen) {
     const carrito = obtenerCarrito();
-    carrito.push({ id, nombre, precio });
+    carrito.push({ id, nombre, precio, imagen});
     guardarCarrito(carrito);
     actualizarCarrito();
 }
@@ -51,11 +51,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     actualizarCarrito();
 
+    //PRODUCTOS A COMPRAR
+
     productos.forEach(producto => {
         const productoDiv = document.createElement('div');
-        productoDiv.innerHTML = `<h4>${producto.nombre}</h4>
+        productoDiv.innerHTML = `<img src="${producto.imagen}">
+            <h4>${producto.nombre}</h4>
             <p>Precio: ${producto.precio} $</p>
-            <button onclick="agregarAlCarrito(${producto.id}, '${producto.nombre}', ${producto.precio})">Agregar al Carrito</button>`;
+            <button onclick="agregarAlCarrito(${producto.id}, '${producto.nombre}', ${producto.precio},)">Agregar al Carrito</button>`;
         productosContainer.appendChild(productoDiv);
     });
 

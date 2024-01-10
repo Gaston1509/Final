@@ -13,10 +13,10 @@ header {
 }
 
 main {
-    max-width: 800px;
+    min-width: 1200;
     margin: 20px auto;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     background-color: #f6efef;
     padding: 20px;
     border-radius: 8px;
@@ -24,15 +24,20 @@ main {
 }
 
 #productos-container {
-    flex: 1;
-    padding-left: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* flex: 1; */
+    /* padding-left: 1rem; */
 
 }
 
 #carrito-container {
+    margin: 0 auto;
+    width: 500px;
     display: flex;
-    justify-content: flex-start;
     flex-direction: column;
+    align-items: center;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -46,7 +51,7 @@ main {
 
 #carrito-lista li {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-bottom: 8px;
 }
 
@@ -76,4 +81,11 @@ button{
 }
 button:hover{
     background-color: #d45e40;
+}
+img{
+    width: 180px;
+    height: 150px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 2px grey;
 }
