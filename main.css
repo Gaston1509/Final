@@ -10,10 +10,14 @@ header {
     color: white;
     text-align: center;
     padding: 1em 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1;
 }
 
 main {
-    min-width: 1200;
+    max-width: 1000;
     margin: 20px auto;
     display: flex;
     flex-direction: column;
@@ -21,15 +25,14 @@ main {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    margin-top: 100px;
 }
 
 #productos-container {
     display: flex;
+    justify-content:space-around;
     flex-wrap: wrap;
-    justify-content: space-between;
-    /* flex: 1; */
-    /* padding-left: 1rem; */
-
+    gap: 14px;
 }
 
 #carrito-container {
@@ -51,7 +54,7 @@ main {
 
 #carrito-lista li {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     margin-bottom: 8px;
 }
 
@@ -71,6 +74,7 @@ main {
 }
 h4{
     margin-top: 10px;
+    text-align: center;
     
 }
 button{
@@ -86,6 +90,17 @@ img{
     width: 180px;
     height: 150px;
     margin-top: 20px;
-    border-radius: 5px;
-    border: 2px grey;
+    border-radius: 10px;
+    border: 2px solid rgb(159, 148, 148);
+    overflow: hidden;
+}
+#carrito-lista li span{
+
+    margin-right: 14px;
+}
+#carrito-lista button{
+    width: 80px;
+    height: 35px;
+    background-color: #93ac7e;
+    color: rgb(23, 22, 22);
 }
