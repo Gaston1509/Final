@@ -27,6 +27,9 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
     margin-top: 100px;
 }
+h1{
+    letter-spacing: 4px
+}
 
 #productos-container {
     width: ;
