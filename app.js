@@ -88,9 +88,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function finalizarCompra() {
         const carrito = obtenerCarrito();
         if (carrito.length === 0) {
-            alert('¡Compra algo ratón!');
+            Swal.fire({
+                icon: "error",
+                title: "¡Compra algo ratón!",
+              });
         } else {
-            alert('Gracias por tu compra. Vuelve pronto. ¡Gracias!');
+            Swal.fire('Gracias por tu compra. Vuelve pronto. ¡Gracias!');
             // LIMPIAR CARRITO
             guardarCarrito([]);
             actualizarCarrito();
