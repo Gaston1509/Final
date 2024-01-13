@@ -44,7 +44,6 @@ h1{
     max-width: 500px;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -52,13 +51,15 @@ h1{
 }
 
 #carrito-lista {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     list-style: none;
     padding: 0;
 }
 
 #carrito-lista li {
     display: flex;
-    justify-content: flex-start;
     margin-bottom: 8px;
 }
 
@@ -103,8 +104,11 @@ img{
     border: 2px solid rgb(159, 148, 148);
     overflow: hidden;
 }
+#carrito-lista li{
+    justify-content: center;
+    margin-right: 14px;
+}
 #carrito-lista li span{
-
     margin-right: 14px;
 }
 #carrito-lista button{
@@ -112,4 +116,8 @@ img{
     height: 35px;
     background-color: #93ac7e;
     color: rgb(23, 22, 22);
+}
+
+#carrito-lista li button{
+    justify-content: center;
 }

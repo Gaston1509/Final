@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
               });
         } else {
             Swal.fire({
-                position: "top-center",
+                position: "center",
                 icon: "success",
                 title: "Gracias por tu compra. Vuelve pronto. ¡Gracias!",
                 showConfirmButton: false,
