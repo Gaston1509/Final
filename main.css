@@ -30,6 +30,19 @@ main {
 h1{
     letter-spacing: 4px
 }
+.banner-padre{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.banner{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+  
+
+}
 
 #productos-container {
     width: ;
