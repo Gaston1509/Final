@@ -13,27 +13,42 @@ const productos = [
     { id: 11, nombre: 'Desayuno', precio: 3000, imagen: './assets/img/cafe_medialunas.png' },
     { id: 12, nombre: 'Yogurt', precio: 1450, imagen: './assets/img/yogurt.png' },
 ];
-
 // FUNCION AGREGAR AL CARRITO
 function agregarAlCarrito(id, nombre, precio, imagen) {
     const carrito = obtenerCarrito();
     carrito.push({ id, nombre, precio, imagen });
     guardarCarrito(carrito);
     actualizarCarrito();
+    
+    // MOSTRAR MODAL DE AGREGADO
+    mostrarModal('Agregaste un producto', nombre);
 }
-
 // FUNCION QUITAR DEL CARRITO
 function quitarDelCarrito(id) {
     let carrito = obtenerCarrito();
     const index = carrito.findIndex(item => item.id === id);
 
     if (index !== -1) {
+        const nombreProducto = carrito[index].nombre;
         carrito.splice(index, 1);
         guardarCarrito(carrito);
         actualizarCarrito();
+        
+        // MOSTRAR MODAL DE QUITAR
+        mostrarModal('Quitaste un producto', nombreProducto);
     }
 }
-
+// FUNCION PARA MOSTRAR MODAL
+function mostrarModal(titulo, mensaje) {
+    Swal.fire({
+        position: "top-end",
+        icon: 'success',
+        title: titulo,
+        text: mensaje,
+        showConfirmButton: false,
+        timer: 1000,
+    });
+}
 // JSON
 function obtenerCarrito() {
     return JSON.parse(localStorage.getItem('carrito')) || [];
@@ -44,7 +59,35 @@ function guardarCarrito(carrito) {
     localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
+// FUNCION OBTENER IMG GOLOSINAS DESDE UNSPLASH
+async function obtenerGolosinasUnsplash() {
+    const accessKey = '0xh-TCYKau5cy36dy6qjVl6DjUgVYI1Yut4iMBWKHaY'; //clave de acceso de Unsplash
+    const query = 'candy'; 
+    const count = 4; // cantidad de imagenes
 
+    try {
+        const response = await fetch(`https://api.unsplash.com/photos/random?query=${query}&count=${count}&client_id=${accessKey}`);
+        if (!response.ok) {
+            throw new Error('Error al obtener datos desde Unsplash');
+        }
+        const data = await response.json();
+        return data.map(item => ({ id: item.id, nombre: 'Golosina', precio: 0, imagen: item.urls.regular }));
+    } catch (error) {
+        console.error('Error:', error.message);
+        return [];
+    }
+}
+
+// FUNCION MOSTRAR GOLOSINAS EN EL BANNER
+function mostrarBanner(golosinasUnsplash) {
+    const bannerContainer = document.getElementById('banner-container');
+
+    golosinasUnsplash.forEach(golosina => {
+        const golosinaDiv = document.createElement('div');
+        golosinaDiv.innerHTML = `<img src="${golosina.imagen}">`;
+        bannerContainer.appendChild(golosinaDiv);
+    });
+}
 
 // ACTUALIZAR CARRITO
 function actualizarCarrito() {
@@ -68,7 +111,7 @@ function actualizarCarrito() {
 }
 
 // VER PRODUCTOS FINALIZAR Y ACTUALIZAR
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const productosContainer = document.getElementById('productos-container');
     const carritoLista = document.getElementById('carrito-lista');
     const totalElement = document.getElementById('total');
@@ -85,14 +128,21 @@ document.addEventListener('DOMContentLoaded', () => {
         productosContainer.appendChild(productoDiv);
     });
 
+    // OBTENER Y MOSTRAR GOLOSINAS DESDE UNSPLASH
+    const golosinasUnsplash = await obtenerGolosinasUnsplash();
+    mostrarBanner(golosinasUnsplash);
+
     document.getElementById('finalizarCompra').addEventListener('click', finalizarCompra);
 
     function finalizarCompra() {
         const carrito = obtenerCarrito();
         if (carrito.length === 0) {
             Swal.fire({
-                icon: "error",
                 title: "¡Compra algo ratón!",
+                imageUrl: "./assets/img/raton.png",
+                imageWidth: 300,
+                imageHeight: 200,
+                imageAlt: "Custom image"
               });
         } else {
             Swal.fire({

@@ -39,15 +39,18 @@ h1{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 5px;
-  
+    gap: 54px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
 
+.marquesina{
+    letter-spacing: 4px;
 }
 
 #productos-container {
-    width: ;
     display: flex;
-    justify-content:space-around;
+    justify-content:space-evenly;
     flex-wrap: wrap;
     gap: 14px;
 }
