@@ -142,13 +142,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                 imageUrl: "./assets/img/raton.png",
                 imageWidth: 300,
                 imageHeight: 200,
-                imageAlt: "Custom image"
+                imageAlt: "Ratón"
               });
         } else {
             Swal.fire({
                 position: "center",
                 icon: "success",
-                title: "Gracias por tu compra. Vuelve pronto. ¡Gracias!",
+                title: "Gracias por tu compra. Vuelva pronto. ¡Gracias!",
                 showConfirmButton: false,
                 timer: 2000
               });
